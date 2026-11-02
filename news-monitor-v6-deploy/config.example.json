@@ -1,0 +1,44 @@
+{
+  "interval_minutes": 10,
+  "request_timeout": 20,
+  "research_period": {
+    "start_date": "YYYY-MM-DD",
+    "end_date": "YYYY-MM-DD"
+  },
+  "article_content": {
+    "enabled": true,
+    "max_fetch_per_source_per_run": 3,
+    "max_chars": 30000,
+    "retry_after_hours": 24,
+    "request_delay_seconds": 1.2
+  },
+  "sources": {
+    "RTHK": {
+      "region": "Hong Kong",
+      "feeds": [],
+      "fallback_feeds": [],
+      "max_entries": 100
+    },
+    "The Standard": {
+      "region": "Hong Kong",
+      "feeds": [],
+      "fallback_feeds": [],
+      "max_entries": 100
+    },
+    "CNA": {
+      "region": "Taiwan",
+      "feeds": [],
+      "fallback_feeds": [],
+      "max_entries": 100
+    },
+    "LTN": {
+      "region": "Taiwan",
+      "feeds": [],
+      "fallback_feeds": [],
+      "max_entries": 100
+    }
+  },
+  "email": {
+    "enabled": false
+  }
+}

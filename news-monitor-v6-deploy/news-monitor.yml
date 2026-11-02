@@ -1,0 +1,224 @@
+name: News Monitor V6
+
+# GitHub Actions accepts this workflow key as a string. Keep the quotes.
+"on":
+  schedule:
+    # Every hour at minute 17 UTC. Scheduled runs can be delayed by GitHub.
+    - cron: '17 * * * *'
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+concurrency:
+  group: news-monitor-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    name: Collect and preserve news data
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    permissions:
+      actions: read
+      contents: read
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Verify required project files
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f news_monitor_v6.py || { echo 'ERROR: news_monitor_v6.py must be in the repository root.'; exit 1; }
+          test -f requirements_news_monitor_v6.txt || { echo 'ERROR: requirements_news_monitor_v6.txt must be in the repository root.'; exit 1; }
+
+      - name: Validate secrets and create private config.json
+        env:
+          NEWS_MONITOR_CONFIG: ${{ secrets.NEWS_MONITOR_CONFIG }}
+          NEWS_MONITOR_STATE_KEY: ${{ secrets.NEWS_MONITOR_STATE_KEY }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -z "$NEWS_MONITOR_CONFIG" ]; then
+            echo 'ERROR: Add the repository secret NEWS_MONITOR_CONFIG.'
+            exit 1
+          fi
+          if [ -z "$NEWS_MONITOR_STATE_KEY" ]; then
+            echo 'ERROR: Add the repository secret NEWS_MONITOR_STATE_KEY.'
+            exit 1
+          fi
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          try:
+              config = json.loads(os.environ["NEWS_MONITOR_CONFIG"])
+          except json.JSONDecodeError as exc:
+              raise SystemExit(f"NEWS_MONITOR_CONFIG is not valid JSON: {exc}")
+
+          sources = config.get("sources")
+          if not isinstance(sources, dict) or not sources:
+              raise SystemExit('NEWS_MONITOR_CONFIG must contain a non-empty "sources" object.')
+
+          missing_feeds = [name for name, source in sources.items()
+                           if not isinstance(source, dict) or not source.get("feeds")]
+          if missing_feeds:
+              raise SystemExit("These sources have no primary feeds configured: " + ", ".join(missing_feeds))
+
+          Path("config.json").write_text(
+              json.dumps(config, ensure_ascii=False, indent=2), encoding="utf-8"
+          )
+          print(f"Private config.json created and validated for {len(sources)} sources.")
+          PY
+
+      - name: Install Python dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --disable-pip-version-check --upgrade pip
+          python -m pip install --disable-pip-version-check -r requirements_news_monitor_v6.txt
+
+      - name: Find most recent saved database snapshot
+        id: previous
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          RUN_ID="$(gh api "repos/${GITHUB_REPOSITORY}/actions/artifacts?per_page=100" \
+            --jq '[.artifacts[] | select(.name == "news-monitor-state" and .expired == false and .workflow_run != null)] | sort_by(.created_at) | last | .workflow_run.id // empty')"
+          echo "run_id=${RUN_ID}" >> "$GITHUB_OUTPUT"
+          if [ -n "$RUN_ID" ]; then
+            echo "Found a previous encrypted database snapshot from workflow run ${RUN_ID}."
+          else
+            echo 'No previous snapshot found. This run will initialize the database.'
+          fi
+
+      - name: Download previous encrypted database snapshot
+        if: steps.previous.outputs.run_id != ''
+        uses: actions/download-artifact@v4
+        with:
+          name: news-monitor-state
+          path: previous-state
+          run-id: ${{ steps.previous.outputs.run_id }}
+          github-token: ${{ github.token }}
+
+      - name: Decrypt and restore previous database
+        if: steps.previous.outputs.run_id != ''
+        env:
+          NEWS_MONITOR_STATE_KEY: ${{ secrets.NEWS_MONITOR_STATE_KEY }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f previous-state/news-monitor-state.enc || {
+            echo 'ERROR: Previous artifact is missing news-monitor-state.enc.'
+            exit 1
+          }
+          openssl enc -d -aes-256-cbc -pbkdf2 -iter 200000 \
+            -in previous-state/news-monitor-state.enc \
+            -out previous-state/state.tar.gz \
+            -pass env:NEWS_MONITOR_STATE_KEY
+          tar -tzf previous-state/state.tar.gz >/dev/null
+          tar -xzf previous-state/state.tar.gz
+          test -f news_monitor.db || {
+            echo 'ERROR: The restored archive does not contain news_monitor.db.'
+            exit 1
+          }
+          echo 'Previous SQLite database restored.'
+
+      - name: Run News Monitor V6 once
+        env:
+          NEWS_MONITOR_DB: news_monitor.db
+          NEWS_MONITOR_EXPORT_DIR: exports
+          PREVIOUS_RUN_ID: ${{ steps.previous.outputs.run_id }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -z "$PREVIOUS_RUN_ID" ]; then
+            python news_monitor_v6.py --once --baseline
+          else
+            python news_monitor_v6.py --once
+          fi
+
+      - name: Create metadata-only coding sheet and encrypted database snapshot
+        env:
+          NEWS_MONITOR_STATE_KEY: ${{ secrets.NEWS_MONITOR_STATE_KEY }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import csv
+          from pathlib import Path
+
+          source = Path("exports/coding_template.csv")
+          destination = Path("exports/coding_manifest.csv")
+          if not source.exists():
+              raise SystemExit("ERROR: V6 did not create exports/coding_template.csv")
+
+          # Only metadata and blank human-coding fields are published as an artifact.
+          # RSS summaries and extracted article text remain inside the encrypted DB.
+          fields = [
+              "id", "media", "region", "title", "url", "published_time", "date_status",
+              "content_status", "manual_news_category", "manual_headline_style",
+              "clickbait_tendency_1_to_5", "social_media_elements_yes_no",
+              "manual_reporting_style", "coder", "coding_notes"
+          ]
+          with source.open("r", encoding="utf-8-sig", newline="") as src:
+              reader = csv.DictReader(src)
+              with destination.open("w", encoding="utf-8-sig", newline="") as dst:
+                  writer = csv.DictWriter(dst, fieldnames=fields, extrasaction="ignore")
+                  writer.writeheader()
+                  for row in reader:
+                      writer.writerow({field: row.get(field, "") for field in fields})
+          print("Created metadata-only coding_manifest.csv.")
+          PY
+
+          python - <<'PY'
+          import sqlite3
+          from pathlib import Path
+
+          db = Path("news_monitor.db")
+          if not db.exists():
+              raise SystemExit("ERROR: news_monitor.db was not created.")
+          con = sqlite3.connect(str(db))
+          try:
+              con.execute("PRAGMA wal_checkpoint(TRUNCATE)")
+              result = con.execute("PRAGMA integrity_check").fetchone()[0]
+              if result != "ok":
+                  raise SystemExit(f"SQLite integrity check failed: {result}")
+          finally:
+              con.close()
+          print("SQLite database checkpoint and integrity check passed.")
+          PY
+
+          mkdir -p state-out
+          tar -czf state-out/state.tar.gz news_monitor.db
+          openssl enc -aes-256-cbc -salt -pbkdf2 -iter 200000 \
+            -in state-out/state.tar.gz \
+            -out state-out/news-monitor-state.enc \
+            -pass env:NEWS_MONITOR_STATE_KEY
+
+      - name: Upload encrypted database snapshot
+        uses: actions/upload-artifact@v4
+        with:
+          name: news-monitor-state
+          path: state-out/news-monitor-state.enc
+          retention-days: 90
+          if-no-files-found: error
+
+      - name: Upload metadata-only coding manifest
+        uses: actions/upload-artifact@v4
+        with:
+          name: coding-manifest
+          path: exports/coding_manifest.csv
+          retention-days: 90
+          if-no-files-found: error

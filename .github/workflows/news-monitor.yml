@@ -1,10 +1,14 @@
+        env:
+          NEWS_MONITOR_STATE_KEY: ${{ secrets.NEWS_MONITOR_STATE_KEY }}
+        shell: bash
         run: |
+          set -euo pipefail
           if [ -z "$NEWS_MONITOR_STATE_KEY" ]; then
             echo 'Missing repository secret: NEWS_MONITOR_STATE_KEY'
             exit 1
           fi
           test -f previous-state/news-monitor-state.enc || {
-            echo 'The previous state artifact does not contain news-monitor-state.enc'
+            echo 'The previous artifact does not contain news-monitor-state.enc'
             exit 1
           }
           openssl enc -d -aes-256-cbc -pbkdf2 -iter 200000 \
@@ -22,19 +26,22 @@
         env:
           NEWS_MONITOR_DB: news_monitor.db
           NEWS_MONITOR_EXPORT_DIR: exports
+          PREVIOUS_RUN_ID: ${{ steps.previous.outputs.run_id }}
         shell: bash
         run: |
-          if [ -z "${{ steps.previous.outputs.run_id }}" ]; then
+          set -euo pipefail
+          if [ -z "$PREVIOUS_RUN_ID" ]; then
             python news_monitor_v6.py --once --baseline
           else
             python news_monitor_v6.py --once
           fi
 
-      - name: Create public coding manifest and encrypted database snapshot
+      - name: Create metadata-only coding manifest and encrypted database snapshot
         env:
           NEWS_MONITOR_STATE_KEY: ${{ secrets.NEWS_MONITOR_STATE_KEY }}
         shell: bash
         run: |
+          set -euo pipefail
           if [ -z "$NEWS_MONITOR_STATE_KEY" ]; then
             echo 'Missing repository secret: NEWS_MONITOR_STATE_KEY'
             exit 1
@@ -51,17 +58,15 @@
               'clickbait_tendency_1_to_5', 'social_media_elements_yes_no',
               'manual_reporting_style', 'coder', 'coding_notes'
           ]
-          if source.exists():
-              with source.open('r', encoding='utf-8-sig', newline='') as src:
-                  reader = csv.DictReader(src)
-                  with destination.open('w', encoding='utf-8-sig', newline='') as dst:
-                      writer = csv.DictWriter(dst, fieldnames=public_fields, extrasaction='ignore')
-                      writer.writeheader()
-                      for row in reader:
-                          writer.writerow({key: row.get(key, '') for key in public_fields})
-          else:
+          if not source.exists():
+              raise SystemExit('Missing exports/coding_template.csv')
+          with source.open('r', encoding='utf-8-sig', newline='') as src:
+              reader = csv.DictReader(src)
               with destination.open('w', encoding='utf-8-sig', newline='') as dst:
-                  csv.DictWriter(dst, fieldnames=public_fields).writeheader()
+                  writer = csv.DictWriter(dst, fieldnames=public_fields, extrasaction='ignore')
+                  writer.writeheader()
+                  for row in reader:
+                      writer.writerow({key: row.get(key, '') for key in public_fields})
           print('Created coding_manifest.csv without article body or RSS summary text.')
           PY
 
@@ -85,15 +90,15 @@
             -pass env:NEWS_MONITOR_STATE_KEY
 
       - name: Upload encrypted database snapshot
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@v4
         with:
           name: news-monitor-state
           path: state-out/news-monitor-state.enc
           retention-days: 90
           if-no-files-found: error
 
-      - name: Upload coding manifest (metadata only)
-        uses: actions/upload-artifact@v7
+      - name: Upload metadata-only coding manifest
+        uses: actions/upload-artifact@v4
         with:
           name: coding-manifest
           path: exports/coding_manifest.csv

@@ -1,0 +1,317 @@
+2026-09-29 21:20:02,318 [INFO] 
+[香港電台 RTHK] checking RSS
+2026-09-29 21:20:02,319 [INFO]   feed: https://rthk.hk/rthk/news/rss/c_expressnews_clocal.xml
+2026-09-29 21:20:11,414 [INFO]     ok (20 entries; text/xml)
+2026-09-29 21:20:11,622 [INFO]   feed: https://rthk.hk/rthk/news/rss/c_expressnews_greaterchina.xml
+2026-09-29 21:20:16,527 [INFO]     ok (20 entries; text/xml)
+2026-09-29 21:20:16,699 [INFO]   feed: https://rthk.hk/rthk/news/rss/c_expressnews_cinternational.xml
+2026-09-29 21:20:22,128 [INFO]     ok (20 entries; text/xml)
+2026-09-29 21:20:22,284 [INFO]   feed: https://rthk.hk/rthk/news/rss/c_expressnews_cfinance.xml
+2026-09-29 21:20:26,619 [INFO]     ok (20 entries; text/xml)
+2026-09-29 21:20:26,771 [INFO] 
+[香港標準 The Standard] checking RSS
+2026-09-29 21:20:26,772 [INFO]   feed: https://www.thestandard.com.hk/news/feed
+2026-09-29 21:20:40,686 [INFO]     parse warning: <unknown>:9:74: not well-formed (invalid token)
+2026-09-29 21:20:40,688 [INFO]   all primary feeds failed; trying fallback feeds
+2026-09-29 21:20:40,691 [INFO]   fallback: https://news.google.com/rss/search?q=site%3Awww.thestandard.com.hk&hl=zh-TW&gl=TW&ceid=TW%3Azh-Hant
+2026-09-29 21:20:43,050 [INFO]     ok (3 entries; application/xml; charset=utf-8)
+2026-09-29 21:20:43,078 [INFO] 
+[中央社 CNA] checking RSS
+2026-09-29 21:20:43,078 [INFO]   feed: https://feeds.feedburner.com/rsscna/politics
+2026-09-29 21:20:44,247 [INFO]     ok (20 entries; text/xml; charset=utf-8)
+2026-09-29 21:20:44,405 [INFO]   feed: https://feeds.feedburner.com/rsscna/intworld
+2026-09-29 21:20:44,731 [INFO]     ok (20 entries; text/xml; charset=utf-8)
+2026-09-29 21:20:44,895 [INFO]   feed: https://feeds.feedburner.com/rsscna/mainland
+2026-09-29 21:20:45,232 [INFO]     ok (20 entries; text/xml; charset=utf-8)
+2026-09-29 21:20:45,414 [INFO]   feed: https://feeds.feedburner.com/rsscna/finance
+2026-09-29 21:20:45,861 [INFO]     ok (20 entries; text/xml; charset=utf-8)
+2026-09-29 21:20:46,038 [INFO]   feed: https://feeds.feedburner.com/rsscna/social
+2026-09-29 21:20:46,674 [INFO]     ok (20 entries; text/xml; charset=utf-8)
+2026-09-29 21:20:46,840 [INFO] 
+[自由時報 LTN] checking RSS
+2026-09-29 21:20:46,840 [INFO]   feed: https://news.ltn.com.tw/rss/all.xml
+2026-09-29 21:20:59,406 [INFO]     HTTP 403 (text/html)
+2026-09-29 21:20:59,407 [INFO]   all primary feeds failed; trying fallback feeds
+2026-09-29 21:20:59,411 [INFO]   fallback: https://news.google.com/rss/search?q=site%3Anews.ltn.com.tw&hl=zh-TW&gl=TW&ceid=TW%3Azh-Hant
+2026-09-29 21:21:00,431 [INFO]     ok (100 entries; application/xml; charset=utf-8)
+2026-09-29 21:21:01,292 [INFO] 
+=== Current database summary ===
+2026-09-29 21:21:01,293 [INFO] 香港電台 RTHK: feeds_ok=4, entries=80, new=70, strong_keyword_hits=0
+2026-09-29 21:21:01,296 [INFO] 香港標準 The Standard: feeds_ok=1, entries=3, new=3, strong_keyword_hits=0
+2026-09-29 21:21:01,300 [INFO] 中央社 CNA: feeds_ok=5, entries=100, new=99, strong_keyword_hits=0
+2026-09-29 21:21:01,301 [INFO] 自由時報 LTN: feeds_ok=1, entries=100, new=100, strong_keyword_hits=0
+2026-10-01 09:15:45,495 [INFO] News monitor V5 started; interval=600s
+2026-10-01 09:15:45,506 [INFO] 
+[香港電台 RTHK] checking RSS
+2026-10-01 09:15:45,506 [INFO]   feed: https://rthk.hk/rthk/news/rss/c_expressnews_clocal.xml
+2026-10-01 09:15:47,261 [INFO]     ok (20 entries; text/xml)
+2026-10-01 09:15:47,353 [INFO]   feed: https://rthk.hk/rthk/news/rss/c_expressnews_greaterchina.xml
+2026-10-01 09:15:48,425 [INFO]     ok (20 entries; text/xml)
+2026-10-01 09:15:48,497 [INFO]   feed: https://rthk.hk/rthk/news/rss/c_expressnews_cinternational.xml
+2026-10-01 09:15:49,045 [INFO]     ok (20 entries; text/xml)
+2026-10-01 09:15:49,124 [INFO]   feed: https://rthk.hk/rthk/news/rss/c_expressnews_cfinance.xml
+2026-10-01 09:15:49,493 [INFO]     ok (20 entries; text/xml)
+2026-10-01 09:15:49,580 [INFO] 
+[香港標準 The Standard] checking RSS
+2026-10-01 09:15:49,580 [INFO]   feed: https://www.thestandard.com.hk/news/feed
+2026-10-01 09:15:59,151 [INFO]     parse warning: <unknown>:9:74: not well-formed (invalid token)
+2026-10-01 09:15:59,152 [INFO]   all primary feeds failed; trying fallback feeds
+2026-10-01 09:15:59,152 [INFO]   fallback: https://news.google.com/rss/search?q=site%3Awww.thestandard.com.hk&hl=zh-TW&gl=TW&ceid=TW%3Azh-Hant
+2026-10-01 09:15:59,661 [INFO]     ok (3 entries; application/xml; charset=utf-8)
+2026-10-01 09:15:59,662 [INFO] 
+[中央社 CNA] checking RSS
+2026-10-01 09:15:59,662 [INFO]   feed: https://feeds.feedburner.com/rsscna/politics
+2026-10-01 09:16:00,288 [INFO]     ok (20 entries; text/xml; charset=utf-8)
+2026-10-01 09:16:00,371 [INFO]   feed: https://feeds.feedburner.com/rsscna/intworld
+2026-10-01 09:16:00,742 [INFO]     ok (20 entries; text/xml; charset=utf-8)
+2026-10-01 09:16:00,830 [INFO]   feed: https://feeds.feedburner.com/rsscna/mainland
+2026-10-01 09:16:01,229 [INFO]     ok (20 entries; text/xml; charset=utf-8)
+2026-10-01 09:16:01,312 [INFO]   feed: https://feeds.feedburner.com/rsscna/finance
+2026-10-01 09:16:01,675 [INFO]     ok (20 entries; text/xml; charset=utf-8)
+2026-10-01 09:16:01,843 [INFO]   feed: https://feeds.feedburner.com/rsscna/social
+2026-10-01 09:16:02,233 [INFO]     ok (20 entries; text/xml; charset=utf-8)
+2026-10-01 09:16:02,317 [INFO] 
+[自由時報 LTN] checking RSS
+2026-10-01 09:16:02,318 [INFO]   feed: https://news.ltn.com.tw/rss/all.xml
+2026-10-01 09:16:02,564 [INFO]     ok (40 entries; application/xml; charset=UTF-8)
+2026-10-01 09:16:02,735 [INFO] email sent: 4
+2026-10-01 09:16:02,735 [INFO] 
+=== Current database summary ===
+2026-10-01 09:16:02,735 [INFO] 香港電台 RTHK: feeds_ok=4, entries=80, new=69, strong_keyword_hits=2
+2026-10-01 09:16:02,735 [INFO] 香港標準 The Standard: feeds_ok=1, entries=3, new=0, strong_keyword_hits=0
+2026-10-01 09:16:02,735 [INFO] 中央社 CNA: feeds_ok=5, entries=100, new=93, strong_keyword_hits=2
+2026-10-01 09:16:02,736 [INFO] 自由時報 LTN: feeds_ok=1, entries=40, new=40, strong_keyword_hits=0
+2026-10-01 09:26:02,739 [INFO] 
+[香港電台 RTHK] checking RSS
+2026-10-01 09:26:02,739 [INFO]   feed: https://rthk.hk/rthk/news/rss/c_expressnews_clocal.xml
+2026-10-01 09:26:04,207 [INFO]     ok (20 entries; text/xml)
+2026-10-01 09:26:04,217 [INFO]   feed: https://rthk.hk/rthk/news/rss/c_expressnews_greaterchina.xml
+2026-10-01 09:26:04,561 [INFO]     ok (20 entries; text/xml)
+2026-10-01 09:26:04,567 [INFO]   feed: https://rthk.hk/rthk/news/rss/c_expressnews_cinternational.xml
+2026-10-01 09:26:04,910 [INFO]     ok (20 entries; text/xml)
+2026-10-01 09:26:04,922 [INFO]   feed: https://rthk.hk/rthk/news/rss/c_expressnews_cfinance.xml
+2026-10-01 09:26:05,610 [INFO]     ok (20 entries; text/xml)
+2026-10-01 09:26:05,651 [INFO] 
+[香港標準 The Standard] checking RSS
+2026-10-01 09:26:05,651 [INFO]   feed: https://www.thestandard.com.hk/news/feed
+2026-10-01 09:26:15,474 [INFO]     parse warning: <unknown>:9:74: not well-formed (invalid token)
+2026-10-01 09:26:15,475 [INFO]   all primary feeds failed; trying fallback feeds
+2026-10-01 09:26:15,475 [INFO]   fallback: https://news.google.com/rss/search?q=site%3Awww.thestandard.com.hk&hl=zh-TW&gl=TW&ceid=TW%3Azh-Hant
+2026-10-01 09:26:16,095 [INFO]     ok (3 entries; application/xml; charset=utf-8)
+2026-10-01 09:26:16,097 [INFO] 
+[中央社 CNA] checking RSS
+2026-10-01 09:26:16,098 [INFO]   feed: https://feeds.feedburner.com/rsscna/politics
+2026-10-01 09:26:17,098 [INFO]     ok (20 entries; text/xml; charset=utf-8)
+2026-10-01 09:26:17,103 [INFO]   feed: https://feeds.feedburner.com/rsscna/intworld
+2026-10-01 09:26:17,372 [INFO]     ok (20 entries; text/xml; charset=utf-8)
+2026-10-01 09:26:17,377 [INFO]   feed: https://feeds.feedburner.com/rsscna/mainland
+2026-10-01 09:26:17,605 [INFO]     ok (20 entries; text/xml; charset=utf-8)
+2026-10-01 09:26:17,609 [INFO]   feed: https://feeds.feedburner.com/rsscna/finance
+2026-10-01 09:26:18,015 [INFO]     ok (20 entries; text/xml; charset=utf-8)
+2026-10-01 09:26:18,018 [INFO]   feed: https://feeds.feedburner.com/rsscna/social
+2026-10-01 09:26:18,452 [INFO]     ok (20 entries; text/xml; charset=utf-8)
+2026-10-01 09:26:18,456 [INFO] 
+[自由時報 LTN] checking RSS
+2026-10-01 09:26:18,456 [INFO]   feed: https://news.ltn.com.tw/rss/all.xml
+2026-10-01 09:26:18,768 [INFO]     ok (40 entries; application/xml; charset=UTF-8)
+2026-10-01 09:26:18,836 [INFO] 
+=== Current database summary ===
+2026-10-01 09:26:18,836 [INFO] 香港電台 RTHK: feeds_ok=4, entries=80, new=4, strong_keyword_hits=0
+2026-10-01 09:26:18,838 [INFO] 香港標準 The Standard: feeds_ok=1, entries=3, new=0, strong_keyword_hits=0
+2026-10-01 09:26:18,845 [INFO] 中央社 CNA: feeds_ok=5, entries=100, new=0, strong_keyword_hits=0
+2026-10-01 09:26:18,846 [INFO] 自由時報 LTN: feeds_ok=1, entries=40, new=10, strong_keyword_hits=0
+2026-10-01 09:36:18,852 [INFO] 
+[香港電台 RTHK] checking RSS
+2026-10-01 09:36:18,853 [INFO]   feed: https://rthk.hk/rthk/news/rss/c_expressnews_clocal.xml
+2026-10-01 09:36:20,373 [INFO]     ok (20 entries; text/xml)
+2026-10-01 09:36:20,377 [INFO]   feed: https://rthk.hk/rthk/news/rss/c_expressnews_greaterchina.xml
+2026-10-01 09:36:20,857 [INFO]     ok (20 entries; text/xml)
+2026-10-01 09:36:20,861 [INFO]   feed: https://rthk.hk/rthk/news/rss/c_expressnews_cinternational.xml
+2026-10-01 09:36:21,178 [INFO]     ok (20 entries; text/xml)
+2026-10-01 09:36:21,181 [INFO]   feed: https://rthk.hk/rthk/news/rss/c_expressnews_cfinance.xml
+2026-10-01 09:36:21,517 [INFO]     ok (20 entries; text/xml)
+2026-10-01 09:36:21,521 [INFO] 
+[香港標準 The Standard] checking RSS
+2026-10-01 09:36:21,521 [INFO]   feed: https://www.thestandard.com.hk/news/feed
+2026-10-01 09:36:31,163 [INFO]     parse warning: <unknown>:9:74: not well-formed (invalid token)
+2026-10-01 09:36:31,163 [INFO]   all primary feeds failed; trying fallback feeds
+2026-10-01 09:36:31,164 [INFO]   fallback: https://news.google.com/rss/search?q=site%3Awww.thestandard.com.hk&hl=zh-TW&gl=TW&ceid=TW%3Azh-Hant
+2026-10-01 09:36:31,568 [INFO]     ok (3 entries; application/xml; charset=utf-8)
+2026-10-01 09:36:31,569 [INFO] 
+[中央社 CNA] checking RSS
+2026-10-01 09:36:31,569 [INFO]   feed: https://feeds.feedburner.com/rsscna/politics
+2026-10-01 09:36:32,099 [INFO]     ok (20 entries; text/xml; charset=utf-8)
+2026-10-01 09:36:32,118 [INFO]   feed: https://feeds.feedburner.com/rsscna/intworld
+2026-10-01 09:36:32,386 [INFO]     ok (20 entries; text/xml; charset=utf-8)
+2026-10-01 09:36:32,390 [INFO]   feed: https://feeds.feedburner.com/rsscna/mainland
+2026-10-01 09:36:32,607 [INFO]     ok (20 entries; text/xml; charset=utf-8)
+2026-10-01 09:36:32,611 [INFO]   feed: https://feeds.feedburner.com/rsscna/finance
+2026-10-01 09:36:33,059 [INFO]     ok (20 entries; text/xml; charset=utf-8)
+2026-10-01 09:36:33,062 [INFO]   feed: https://feeds.feedburner.com/rsscna/social
+2026-10-01 09:36:33,426 [INFO]     ok (20 entries; text/xml; charset=utf-8)
+2026-10-01 09:36:33,430 [INFO] 
+[自由時報 LTN] checking RSS
+2026-10-01 09:36:33,430 [INFO]   feed: https://news.ltn.com.tw/rss/all.xml
+2026-10-01 09:36:33,587 [INFO]     ok (40 entries; application/xml; charset=UTF-8)
+2026-10-01 09:36:33,643 [INFO] 
+=== Current database summary ===
+2026-10-01 09:36:33,644 [INFO] 香港電台 RTHK: feeds_ok=4, entries=80, new=0, strong_keyword_hits=0
+2026-10-01 09:36:33,645 [INFO] 香港標準 The Standard: feeds_ok=1, entries=3, new=0, strong_keyword_hits=0
+2026-10-01 09:36:33,645 [INFO] 中央社 CNA: feeds_ok=5, entries=100, new=3, strong_keyword_hits=0
+2026-10-01 09:36:33,646 [INFO] 自由時報 LTN: feeds_ok=1, entries=40, new=11, strong_keyword_hits=0
+2026-10-01 09:46:33,650 [INFO] 
+[香港電台 RTHK] checking RSS
+2026-10-01 09:46:33,651 [INFO]   feed: https://rthk.hk/rthk/news/rss/c_expressnews_clocal.xml
+2026-10-01 09:46:35,144 [INFO]     ok (20 entries; text/xml)
+2026-10-01 09:46:35,161 [INFO]   feed: https://rthk.hk/rthk/news/rss/c_expressnews_greaterchina.xml
+2026-10-01 09:46:35,415 [INFO]     ok (20 entries; text/xml)
+2026-10-01 09:46:35,425 [INFO]   feed: https://rthk.hk/rthk/news/rss/c_expressnews_cinternational.xml
+2026-10-01 09:46:35,733 [INFO]     ok (20 entries; text/xml)
+2026-10-01 09:46:35,737 [INFO]   feed: https://rthk.hk/rthk/news/rss/c_expressnews_cfinance.xml
+2026-10-01 09:46:36,020 [INFO]     ok (20 entries; text/xml)
+2026-10-01 09:46:36,023 [INFO] 
+[香港標準 The Standard] checking RSS
+2026-10-01 09:46:36,024 [INFO]   feed: https://www.thestandard.com.hk/news/feed
+2026-10-01 09:46:45,664 [INFO]     parse warning: <unknown>:9:74: not well-formed (invalid token)
+2026-10-01 09:46:45,665 [INFO]   all primary feeds failed; trying fallback feeds
+2026-10-01 09:46:45,666 [INFO]   fallback: https://news.google.com/rss/search?q=site%3Awww.thestandard.com.hk&hl=zh-TW&gl=TW&ceid=TW%3Azh-Hant
+2026-10-01 09:46:46,142 [INFO]     ok (3 entries; application/xml; charset=utf-8)
+2026-10-01 09:46:46,143 [INFO] 
+[中央社 CNA] checking RSS
+2026-10-01 09:46:46,144 [INFO]   feed: https://feeds.feedburner.com/rsscna/politics
+2026-10-01 09:46:46,720 [INFO]     ok (20 entries; text/xml; charset=utf-8)
+2026-10-01 09:46:46,724 [INFO]   feed: https://feeds.feedburner.com/rsscna/intworld
+2026-10-01 09:46:47,080 [INFO]     ok (20 entries; text/xml; charset=utf-8)
+2026-10-01 09:46:47,084 [INFO]   feed: https://feeds.feedburner.com/rsscna/mainland
+2026-10-01 09:46:47,489 [INFO]     ok (20 entries; text/xml; charset=utf-8)
+2026-10-01 09:46:47,493 [INFO]   feed: https://feeds.feedburner.com/rsscna/finance
+2026-10-01 09:46:47,940 [INFO]     ok (20 entries; text/xml; charset=utf-8)
+2026-10-01 09:46:47,943 [INFO]   feed: https://feeds.feedburner.com/rsscna/social
+2026-10-01 09:46:48,343 [INFO]     ok (20 entries; text/xml; charset=utf-8)
+2026-10-01 09:46:48,347 [INFO] 
+[自由時報 LTN] checking RSS
+2026-10-01 09:46:48,347 [INFO]   feed: https://news.ltn.com.tw/rss/all.xml
+2026-10-01 09:46:48,721 [INFO]     ok (40 entries; application/xml; charset=UTF-8)
+2026-10-01 09:46:48,766 [INFO] 
+=== Current database summary ===
+2026-10-01 09:46:48,766 [INFO] 香港電台 RTHK: feeds_ok=4, entries=80, new=3, strong_keyword_hits=0
+2026-10-01 09:46:48,767 [INFO] 香港標準 The Standard: feeds_ok=1, entries=3, new=0, strong_keyword_hits=0
+2026-10-01 09:46:48,767 [INFO] 中央社 CNA: feeds_ok=5, entries=100, new=0, strong_keyword_hits=0
+2026-10-01 09:46:48,768 [INFO] 自由時報 LTN: feeds_ok=1, entries=40, new=8, strong_keyword_hits=0
+2026-10-01 09:56:48,772 [INFO] 
+[香港電台 RTHK] checking RSS
+2026-10-01 09:56:48,773 [INFO]   feed: https://rthk.hk/rthk/news/rss/c_expressnews_clocal.xml
+2026-10-01 09:56:50,329 [INFO]     ok (20 entries; text/xml)
+2026-10-01 09:56:50,333 [INFO]   feed: https://rthk.hk/rthk/news/rss/c_expressnews_greaterchina.xml
+2026-10-01 09:56:50,615 [INFO]     ok (20 entries; text/xml)
+2026-10-01 09:56:50,619 [INFO]   feed: https://rthk.hk/rthk/news/rss/c_expressnews_cinternational.xml
+2026-10-01 09:56:50,872 [INFO]     ok (20 entries; text/xml)
+2026-10-01 09:56:50,876 [INFO]   feed: https://rthk.hk/rthk/news/rss/c_expressnews_cfinance.xml
+2026-10-01 09:56:51,132 [INFO]     ok (20 entries; text/xml)
+2026-10-01 09:56:51,135 [INFO] 
+[香港標準 The Standard] checking RSS
+2026-10-01 09:56:51,135 [INFO]   feed: https://www.thestandard.com.hk/news/feed
+2026-10-01 09:57:00,535 [INFO]     parse warning: <unknown>:9:74: not well-formed (invalid token)
+2026-10-01 09:57:00,535 [INFO]   all primary feeds failed; trying fallback feeds
+2026-10-01 09:57:00,536 [INFO]   fallback: https://news.google.com/rss/search?q=site%3Awww.thestandard.com.hk&hl=zh-TW&gl=TW&ceid=TW%3Azh-Hant
+2026-10-01 09:57:00,791 [INFO]     ok (3 entries; application/xml; charset=utf-8)
+2026-10-01 09:57:00,792 [INFO] 
+[中央社 CNA] checking RSS
+2026-10-01 09:57:00,792 [INFO]   feed: https://feeds.feedburner.com/rsscna/politics
+2026-10-01 09:57:01,246 [INFO]     ok (20 entries; text/xml; charset=utf-8)
+2026-10-01 09:57:01,250 [INFO]   feed: https://feeds.feedburner.com/rsscna/intworld
+2026-10-01 09:57:01,472 [INFO]     ok (20 entries; text/xml; charset=utf-8)
+2026-10-01 09:57:01,476 [INFO]   feed: https://feeds.feedburner.com/rsscna/mainland
+2026-10-01 09:57:01,942 [INFO]     ok (20 entries; text/xml; charset=utf-8)
+2026-10-01 09:57:01,959 [INFO]   feed: https://feeds.feedburner.com/rsscna/finance
+2026-10-01 09:57:02,316 [INFO]     ok (20 entries; text/xml; charset=utf-8)
+2026-10-01 09:57:02,319 [INFO]   feed: https://feeds.feedburner.com/rsscna/social
+2026-10-01 09:57:02,687 [INFO]     ok (20 entries; text/xml; charset=utf-8)
+2026-10-01 09:57:02,690 [INFO] 
+[自由時報 LTN] checking RSS
+2026-10-01 09:57:02,691 [INFO]   feed: https://news.ltn.com.tw/rss/all.xml
+2026-10-01 09:57:03,130 [INFO]     ok (40 entries; application/xml; charset=UTF-8)
+2026-10-01 09:57:03,189 [INFO] 
+=== Current database summary ===
+2026-10-01 09:57:03,189 [INFO] 香港電台 RTHK: feeds_ok=4, entries=80, new=0, strong_keyword_hits=0
+2026-10-01 09:57:03,190 [INFO] 香港標準 The Standard: feeds_ok=1, entries=3, new=0, strong_keyword_hits=0
+2026-10-01 09:57:03,190 [INFO] 中央社 CNA: feeds_ok=5, entries=100, new=2, strong_keyword_hits=0
+2026-10-01 09:57:03,191 [INFO] 自由時報 LTN: feeds_ok=1, entries=40, new=11, strong_keyword_hits=0
+2026-10-01 10:07:03,195 [INFO] 
+[香港電台 RTHK] checking RSS
+2026-10-01 10:07:03,195 [INFO]   feed: https://rthk.hk/rthk/news/rss/c_expressnews_clocal.xml
+2026-10-01 10:07:05,060 [INFO]     ok (20 entries; text/xml)
+2026-10-01 10:07:05,071 [INFO]   feed: https://rthk.hk/rthk/news/rss/c_expressnews_greaterchina.xml
+2026-10-01 10:07:05,683 [INFO]     ok (20 entries; text/xml)
+2026-10-01 10:07:05,691 [INFO]   feed: https://rthk.hk/rthk/news/rss/c_expressnews_cinternational.xml
+2026-10-01 10:07:05,971 [INFO]     ok (20 entries; text/xml)
+2026-10-01 10:07:05,974 [INFO]   feed: https://rthk.hk/rthk/news/rss/c_expressnews_cfinance.xml
+2026-10-01 10:07:06,284 [INFO]     ok (20 entries; text/xml)
+2026-10-01 10:07:06,290 [INFO] 
+[香港標準 The Standard] checking RSS
+2026-10-01 10:07:06,290 [INFO]   feed: https://www.thestandard.com.hk/news/feed
+2026-10-01 10:07:16,277 [INFO]     parse warning: <unknown>:9:74: not well-formed (invalid token)
+2026-10-01 10:07:16,277 [INFO]   all primary feeds failed; trying fallback feeds
+2026-10-01 10:07:16,277 [INFO]   fallback: https://news.google.com/rss/search?q=site%3Awww.thestandard.com.hk&hl=zh-TW&gl=TW&ceid=TW%3Azh-Hant
+2026-10-01 10:07:16,588 [INFO]     ok (3 entries; application/xml; charset=utf-8)
+2026-10-01 10:07:16,590 [INFO] 
+[中央社 CNA] checking RSS
+2026-10-01 10:07:16,590 [INFO]   feed: https://feeds.feedburner.com/rsscna/politics
+2026-10-01 10:07:17,206 [INFO]     ok (20 entries; text/xml; charset=utf-8)
+2026-10-01 10:07:17,210 [INFO]   feed: https://feeds.feedburner.com/rsscna/intworld
+2026-10-01 10:07:17,584 [INFO]     ok (20 entries; text/xml; charset=utf-8)
+2026-10-01 10:07:17,589 [INFO]   feed: https://feeds.feedburner.com/rsscna/mainland
+2026-10-01 10:07:17,963 [INFO]     ok (20 entries; text/xml; charset=utf-8)
+2026-10-01 10:07:17,970 [INFO]   feed: https://feeds.feedburner.com/rsscna/finance
+2026-10-01 10:07:18,330 [INFO]     ok (20 entries; text/xml; charset=utf-8)
+2026-10-01 10:07:18,369 [INFO]   feed: https://feeds.feedburner.com/rsscna/social
+2026-10-01 10:07:18,815 [INFO]     ok (20 entries; text/xml; charset=utf-8)
+2026-10-01 10:07:18,820 [INFO] 
+[自由時報 LTN] checking RSS
+2026-10-01 10:07:18,820 [INFO]   feed: https://news.ltn.com.tw/rss/all.xml
+2026-10-01 10:07:19,405 [INFO]     ok (40 entries; application/xml; charset=UTF-8)
+2026-10-01 10:07:19,515 [INFO] 
+=== Current database summary ===
+2026-10-01 10:07:19,516 [INFO] 香港電台 RTHK: feeds_ok=4, entries=80, new=2, strong_keyword_hits=0
+2026-10-01 10:07:19,517 [INFO] 香港標準 The Standard: feeds_ok=1, entries=3, new=0, strong_keyword_hits=0
+2026-10-01 10:07:19,517 [INFO] 中央社 CNA: feeds_ok=5, entries=100, new=7, strong_keyword_hits=0
+2026-10-01 10:07:19,517 [INFO] 自由時報 LTN: feeds_ok=1, entries=40, new=17, strong_keyword_hits=0
+2026-10-01 10:17:19,522 [INFO] 
+[香港電台 RTHK] checking RSS
+2026-10-01 10:17:19,523 [INFO]   feed: https://rthk.hk/rthk/news/rss/c_expressnews_clocal.xml
+2026-10-01 10:17:20,970 [INFO]     ok (20 entries; text/xml)
+2026-10-01 10:17:20,974 [INFO]   feed: https://rthk.hk/rthk/news/rss/c_expressnews_greaterchina.xml
+2026-10-01 10:17:21,306 [INFO]     ok (20 entries; text/xml)
+2026-10-01 10:17:21,309 [INFO]   feed: https://rthk.hk/rthk/news/rss/c_expressnews_cinternational.xml
+2026-10-01 10:17:21,566 [INFO]     ok (20 entries; text/xml)
+2026-10-01 10:17:21,568 [INFO]   feed: https://rthk.hk/rthk/news/rss/c_expressnews_cfinance.xml
+2026-10-01 10:17:21,839 [INFO]     ok (20 entries; text/xml)
+2026-10-01 10:17:21,842 [INFO] 
+[香港標準 The Standard] checking RSS
+2026-10-01 10:17:21,842 [INFO]   feed: https://www.thestandard.com.hk/news/feed
+2026-10-01 10:17:31,737 [INFO]     parse warning: <unknown>:9:74: not well-formed (invalid token)
+2026-10-01 10:17:31,737 [INFO]   all primary feeds failed; trying fallback feeds
+2026-10-01 10:17:31,739 [INFO]   fallback: https://news.google.com/rss/search?q=site%3Awww.thestandard.com.hk&hl=zh-TW&gl=TW&ceid=TW%3Azh-Hant
+2026-10-01 10:17:32,279 [INFO]     ok (3 entries; application/xml; charset=utf-8)
+2026-10-01 10:17:32,280 [INFO] 
+[中央社 CNA] checking RSS
+2026-10-01 10:17:32,280 [INFO]   feed: https://feeds.feedburner.com/rsscna/politics
+2026-10-01 10:17:33,051 [INFO]     ok (20 entries; text/xml; charset=utf-8)
+2026-10-01 10:17:33,054 [INFO]   feed: https://feeds.feedburner.com/rsscna/intworld
+2026-10-01 10:17:33,423 [INFO]     ok (20 entries; text/xml; charset=utf-8)
+2026-10-01 10:17:33,426 [INFO]   feed: https://feeds.feedburner.com/rsscna/mainland
+2026-10-01 10:17:33,828 [INFO]     ok (20 entries; text/xml; charset=utf-8)
+2026-10-01 10:17:33,832 [INFO]   feed: https://feeds.feedburner.com/rsscna/finance
+2026-10-01 10:17:34,223 [INFO]     ok (20 entries; text/xml; charset=utf-8)
+2026-10-01 10:17:34,226 [INFO]   feed: https://feeds.feedburner.com/rsscna/social
+2026-10-01 10:17:34,623 [INFO]     ok (20 entries; text/xml; charset=utf-8)
+2026-10-01 10:17:34,628 [INFO] 
+[自由時報 LTN] checking RSS
+2026-10-01 10:17:34,628 [INFO]   feed: https://news.ltn.com.tw/rss/all.xml
+2026-10-01 10:17:34,798 [INFO]     ok (40 entries; application/xml; charset=UTF-8)
+2026-10-01 10:17:34,854 [INFO] 
+=== Current database summary ===
+2026-10-01 10:17:34,854 [INFO] 香港電台 RTHK: feeds_ok=4, entries=80, new=0, strong_keyword_hits=0
+2026-10-01 10:17:34,855 [INFO] 香港標準 The Standard: feeds_ok=1, entries=3, new=0, strong_keyword_hits=0
+2026-10-01 10:17:34,855 [INFO] 中央社 CNA: feeds_ok=5, entries=100, new=0, strong_keyword_hits=0
+2026-10-01 10:17:34,856 [INFO] 自由時報 LTN: feeds_ok=1, entries=40, new=11, strong_keyword_hits=0
